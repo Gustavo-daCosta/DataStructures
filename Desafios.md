@@ -137,6 +137,50 @@ typedef struct {
 
 ---
 
+## Desafio 6: Simulador de Rede Social - Grafo
+
+**Problema:** Implemente um simulador de rede social usando grafo com lista de adjacência, onde pessoas são vértices e amizades são arestas.
+
+**Estrutura de Dados:** Grafo com Lista de Adjacência (Graph with Adjacency List)
+
+**Funcionalidades Esperadas:**
+- Adicionar pessoa à rede social
+- Criar amizade entre duas pessoas (conexão bidirecional)
+- Listar amigos de uma pessoa específica
+- Encontrar distância entre duas pessoas (graus de separação)
+- Buscar amigos em comum entre duas pessoas
+- Explorar componentes conectados da rede (DFS)
+- Busca em largura (BFS) para encontrar caminhos
+- Visualizar toda a estrutura da rede
+
+**Exemplo de Estrutura:**
+```c
+typedef struct NoAmizade {
+    int idAmigo;
+    struct NoAmizade* proximo;
+} NoAmizade;
+
+typedef struct {
+    int id;
+    char nome[30];
+    NoAmizade* amigos;  // Lista de adjacência
+    int ativo;
+} Pessoa;
+```
+
+**Casos de Uso:**
+```
+Adicionar pessoa: Alice (ID: 1)
+Adicionar pessoa: Bob (ID: 2)
+Criar amizade: Alice ↔ Bob
+Distância entre Alice e Carol: 2 graus de separação
+Amigos em comum: Alice e Carol têm Bob como amigo comum
+```
+
+**Arquivo:** `Desafios/desafio6_grafo.c`
+
+---
+
 ## Como Compilar e Executar
 
 Para compilar qualquer um dos desafios, use:
@@ -145,6 +189,12 @@ Para compilar qualquer um dos desafios, use:
 cd Desafios/
 gcc -o desafio1 desafio1_pilha.c
 ./desafio1
+```
+
+Exemplo para o novo desafio de grafo:
+```bash
+gcc -o desafio6 desafio6_grafo.c
+./desafio6
 ```
 
 ## Critérios de Avaliação
